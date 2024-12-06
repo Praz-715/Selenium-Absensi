@@ -60,7 +60,7 @@ def login(driver, username, password):
 async def upload_pic(image_name, cookie_string):
     url = "https://www.vankasystem.net/absensi/ajax/selfi"
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(script_dir, "images", image_name)
+    file_path = os.path.join(script_dir, "images/Aldo", image_name)
     # file_path = os.path.abspath(os.path.join("images", image_name))
     
     if not os.path.exists(file_path):
@@ -126,8 +126,8 @@ async def main():
         set_geolocation(driver, -6.1745003, 106.7896633)
         
         # Login
-        login(driver, "Teguh", "K@mb1ng1234")
-        # login(driver, "rinaldo", "12345678")
+        # login(driver, "Teguh", "K@mb1ng1234")
+        login(driver, "rinaldo", "12345678")
         
         # Ambil cookies
         cookies = driver.get_cookies()
@@ -137,9 +137,8 @@ async def main():
         
         # Pilih gambar acak
         mypictures = [
-            "1724131171.png", "1708052252.png", "1708686358.png", "1709258931.png",
-            "1709518168.png", "1709550829.png", "1709867274.png", "1710729449.png",
-            "1710761084.png", "1710848697.png", "1710987038.png"
+            "aldo1.jpg", "aldo2.jpg", "aldo3.jpg", "aldo4.jpg",
+            "aldo5.jpg", "aldo6.jpg"
         ]
         selected_image = random.choice(mypictures)
 

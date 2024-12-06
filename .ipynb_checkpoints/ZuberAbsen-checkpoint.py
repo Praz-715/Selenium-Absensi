@@ -60,7 +60,7 @@ def login(driver, username, password):
 async def upload_pic(image_name, cookie_string):
     url = "https://www.vankasystem.net/absensi/ajax/selfi"
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(script_dir, "images", image_name)
+    file_path = os.path.join(script_dir, "images/zuber", image_name)
     # file_path = os.path.abspath(os.path.join("images", image_name))
     
     if not os.path.exists(file_path):
@@ -126,8 +126,8 @@ async def main():
         set_geolocation(driver, -6.1745003, 106.7896633)
         
         # Login
-        login(driver, "Teguh", "K@mb1ng1234")
-        # login(driver, "rinaldo", "12345678")
+        # login(driver, "Teguh", "K@mb1ng1234")
+        login(driver, "zubair", "P@ssw0rd")
         
         # Ambil cookies
         cookies = driver.get_cookies()
@@ -137,9 +137,9 @@ async def main():
         
         # Pilih gambar acak
         mypictures = [
-            "1724131171.png", "1708052252.png", "1708686358.png", "1709258931.png",
-            "1709518168.png", "1709550829.png", "1709867274.png", "1710729449.png",
-            "1710761084.png", "1710848697.png", "1710987038.png"
+            "zuber1.jpg", "zuber2.jpg", "zuber3.jpg", "zuber4.jpg",
+            "zuber5.jpg", "zuber6.jpg", "zuber6.jpg", "zuber7.jpg",
+            "zuber8.jpg", "zuber8.jpg", "zuber10.jpg"
         ]
         selected_image = random.choice(mypictures)
 
@@ -163,8 +163,8 @@ async def main():
         driver.quit()
 
 # Jalankan fungsi async
-minute = [x for x in range(1, 15)]
-chosen_minute = random.choice(minute)
-time.sleep(chosen_minute * 60)
+#minute = [x for x in range(1, 15)]
+#chosen_minute = random.choice(minute)
+#time.sleep(chosen_minute * 60)
 asyncio.run(main())
 

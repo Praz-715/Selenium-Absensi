@@ -60,7 +60,7 @@ def login(driver, username, password):
 async def upload_pic(image_name, cookie_string):
     url = "https://www.vankasystem.net/absensi/ajax/selfi"
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(script_dir, "images", image_name)
+    file_path = os.path.join(script_dir, "images/Fikri", image_name)
     # file_path = os.path.abspath(os.path.join("images", image_name))
     
     if not os.path.exists(file_path):
@@ -126,7 +126,7 @@ async def main():
         set_geolocation(driver, -6.1745003, 106.7896633)
         
         # Login
-        login(driver, "Teguh", "K@mb1ng1234")
+        login(driver, "Fikri", "P@ssw0rd")
         # login(driver, "rinaldo", "12345678")
         
         # Ambil cookies
@@ -134,13 +134,19 @@ async def main():
         cookie_string = "; ".join([f"{cookie['name']}={cookie['value']}" for cookie in cookies])
         
         print('cookie_string', cookie_string)
-        
-        # Pilih gambar acak
-        mypictures = [
-            "1724131171.png", "1708052252.png", "1708686358.png", "1709258931.png",
-            "1709518168.png", "1709550829.png", "1709867274.png", "1710729449.png",
-            "1710761084.png", "1710848697.png", "1710987038.png"
-        ]
+
+        # Menentukan direktori tempat gambar berada
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        direktori_gambar = os.path.join(script_dir, "images/Fikri")
+        # direktori_gambar = 'images/Fikri'
+
+        # Membaca semua file di direktori
+        semua_file = os.listdir(direktori_gambar)
+
+        # Memilih file yang berextensi .jpg
+        mypictures = [file for file in semua_file if file.endswith('.jpg')]
+
+        # Memilih gambar secara acak dari gambar .jpg
         selected_image = random.choice(mypictures)
 
         # Panggil fungsi async untuk upload gambar
@@ -159,11 +165,11 @@ async def main():
         print("An error occurred:", str(e))
 
     finally:
-        time.sleep(5)
+        #time.sleep(5)
         driver.quit()
 
 # Jalankan fungsi async
-minute = [x for x in range(1, 15)]
+minute = [x for x in range(3, 13)]
 chosen_minute = random.choice(minute)
 time.sleep(chosen_minute * 60)
 asyncio.run(main())
